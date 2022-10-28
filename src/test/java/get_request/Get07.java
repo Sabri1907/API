@@ -40,7 +40,7 @@ Then
         Response response = given().spec(spec).when().get("/{first}");
         //response.prettyPrint();
 
-        // 4. Do Assertion
+        // 4. Do Assertions
 
         //1)Status code is 200 == > Status kodu 200 olmali
         response.then().assertThat().statusCode(200);
