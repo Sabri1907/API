@@ -3,6 +3,7 @@ package get_request;
 import base_url.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,6 +70,37 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
         System.out.println("actualData = " + actualData);//{id=2, completed=false, title=quis ut nam facilis et officia qui, userId=1}
         assertEquals(expectedData.get("userId"),actualData.get("userId"));
         assertEquals(expectedData.get("id"),actualData.get("id"));
+        assertEquals(expectedData.get("title"),actualData.get("title"));
+        assertEquals(expectedData.get("completed"),actualData.get("completed"));
+        // Hangi data'nin hatali oldugunu bulmak icin map'i butun olarak degil baslikjlari ayri ayri assert yaptik.
+
+        assertEquals("1.1 vegur",response.header("Via"));
+        assertEquals("cloudflare",response.header("Server"));
+        assertEquals(200,response.statusCode());
+
+
+    }
+    @Test
+    public void get08b(){
+        // 1=> Set The Url
+        spec.pathParams("first","todos","second",2);
+
+        // 2=> Set The Expected Data ==> PAYLOAD
+        JsonPlaceHolderTestData objJsnPlcHldr=new JsonPlaceHolderTestData();
+       Map<String, Object> expectedData=objJsnPlcHldr.expectedDataMethod(1,"quis ut nam facilis et officia qui",false);
+        System.out.println("expectedData = " + expectedData);
+
+
+        // 3=> Send The Request And Get The Response
+        Response response= given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
+
+        // 4=> Do Assertion
+        Map<String,Object> actualData=response.as(HashMap.class); // DeSerialization yaptik. response'la gelen json
+        // dilindeki yapiyi map'e cevirdik.
+        System.out.println("actualData = " + actualData);//{id=2, completed=false, title=quis ut nam facilis et officia qui, userId=1}
+        assertEquals(expectedData.get("userId"),actualData.get("userId"));
+        //assertEquals(expectedData.get("id"),actualData.get("id"));
         assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
         // Hangi data'nin hatali oldugunu bulmak icin map'i butun olarak degil baslikjlari ayri ayri assert yaptik.
