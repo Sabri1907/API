@@ -55,6 +55,10 @@ public class Get10 extends GoRestBaseUrl {
         assertEquals(dataKeyMap.get("gender"),((Map)actualData.get("data")).get("gender"));
         assertEquals(dataKeyMap.get("status"),((Map)actualData.get("data")).get("status"));
 
+        // Pojo Class daha guvenli ve daha hizli (Hash Map'e gore)
+
+        // PAYLOAD:
+
     }
 
     }
