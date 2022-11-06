@@ -38,7 +38,7 @@ public class Get12Pojo extends RestfulBaseUrl {
 
         //Set the Expected Data
         BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01","2019-01-01");
-        BookingPojo expectedData = new BookingPojo("Dane","Combs",111,true,bookingDatesPojo,"Breakfast");
+        BookingPojo expectedData = new BookingPojo("Guoqiang","Liu",111,true,bookingDatesPojo,"Breakfast");
         System.out.println("expectedData = " + expectedData);
 
         //Send the Request and Get the Response

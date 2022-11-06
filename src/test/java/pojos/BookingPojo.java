@@ -1,5 +1,8 @@
 package pojos;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingPojo {
 
     private String firstname;
@@ -16,6 +19,9 @@ public class BookingPojo {
         this.depositpaid = depositpaid;
         this.bookingdates = bookingdates;
         this.additionalneeds = additionalneeds;
+    }
+
+    public BookingPojo() {
     }
 
     public String getFirstname() {

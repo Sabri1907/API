@@ -1,5 +1,8 @@
 package pojos;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingDatesPojo {
 
     //1. ADIM=> Tum key'ler icin private variable'lar olusturulur
@@ -15,10 +18,9 @@ public class BookingDatesPojo {
     }
 
     public BookingDatesPojo() {
-
     }
 
-    // 3.ADIM=> Public Getter ve Setetr method'larini olusturuyoruz
+    // 3.ADIM=> Tum variable'lar icin Public Getter ve Setter method'lari olusturulur
 
     public String getCheckin() {
         return checkin;
