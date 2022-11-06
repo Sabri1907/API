@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -40,12 +41,18 @@ public class Post05ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
         spec.pathParam("first","todos");
 
         // 2=> Set the Expected Data
-        String jsonInString="{\n" +
-                "                                    \"userId\": 55,\n" +
-                "                                    \"title\": \"Tidy your room\",\n" +
-                "                                    \"completed\": false,\n" +
-                "                                    \"id\": 201\n" +
-                "                                    }";
+        //String jsonInString="{\n" +
+        //        "                                    \"userId\": 55,\n" +
+        //        "                                    \"title\": \"Tidy your room\",\n" +
+        //        "                                    \"completed\": false,\n" +
+        //        "                                    \"id\": 201\n" +
+        //        "                                    }";
+
+        // NOT: Yukaridaki uzun islemden kurtulmak icin JsinPlaceHolderTestData'da Json'dan String'e cevirmek icin
+        // method olusturduk ve alt satirda methodcall yaptik.
+        JsonPlaceHolderTestData obj = new JsonPlaceHolderTestData();
+        String jsonInString=obj.expectedDataInString(55,"Tidy your room",false);
+
         Map<String,Object> expectedData= new ObjectMapper().readValue(jsonInString, HashMap.class);
         System.out.println("expectedData = " + expectedData);
 
