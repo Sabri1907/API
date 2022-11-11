@@ -3,7 +3,7 @@ package delete_requests;
 import base_url.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import utils.ObjeMapperUtils;
+import utils.ObjectMapperUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ public class Delete01 extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
         // 4=> Do Assertion
 
-       Map actualData = ObjeMapperUtils.convertJsonToJava(response.asString(), HashMap.class);
+       Map actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), HashMap.class);
 
         assertEquals(200,response.getStatusCode());
 

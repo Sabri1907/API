@@ -3,9 +3,8 @@ package utils;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
-import java.util.HashMap;
 
-public class ObjeMapperUtils {
+public class ObjectMapperUtils {
     // new ObjectMapper().readValue(jsonInString, HashMap .class);
 
     private static ObjectMapper mapper;

@@ -4,7 +4,7 @@ import base_url.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 import test_data.JsonPlaceHolderTestData;
-import utils.ObjeMapperUtils;
+import utils.ObjectMapperUtils;
 
 import java.util.Map;
 
@@ -34,7 +34,7 @@ public class Get14ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
 
         // 2=> Set the Expected Data
         String expectedDataInString=new JsonPlaceHolderTestData().expectedDataInString(10,"quis eius est sint explicabo",true);
-        Map<String,Object> expectedData=ObjeMapperUtils.convertJsonToJava(expectedDataInString, Map.class);
+        Map<String,Object> expectedData= ObjectMapperUtils.convertJsonToJava(expectedDataInString, Map.class);
         System.out.println("expectedData = " + expectedData);
 
         // 3=> Send the Request and Get the Response
@@ -42,7 +42,7 @@ public class Get14ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         // 4=> Do Assertion
-        Map<String,Object> actualData=ObjeMapperUtils.convertJsonToJava(response.asString(),Map.class);
+        Map<String,Object> actualData= ObjectMapperUtils.convertJsonToJava(response.asString(),Map.class);
         assertEquals(200,response.getStatusCode());
         assertEquals(expectedData.get("userId"),actualData.get("userId"));
         assertEquals(expectedData.get("title"),actualData.get("title"));
