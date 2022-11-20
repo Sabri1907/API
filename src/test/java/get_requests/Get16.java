@@ -71,7 +71,7 @@ public class Get16 extends DummyRestApiBaseUrl {
         System.out.println(ages.get(ages.size()-1)); //66=> En sondaki elemani dondurdu
         assertEquals(66,(int)ages.get(ages.size()-1)); // Explicitly narrowing yaptik.
         // list'den gelen data'yi object olarak algiladi o yuzden hata verdi biz de basina(int) yazarak
-        // => Explicitly narrowing yapmis olduk. Ve muhtemel hatayi önlemiş olduk.
+        // => Explicitly narrowing yapmis olduk. Ve muhtemel hatayi önlemiş olduk..
 
 
     }
